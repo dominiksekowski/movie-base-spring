@@ -1,7 +1,12 @@
 package com.domseko.moviebasespring.domain;
 
+import javax.persistence.*;
+
+@Entity
 public class Actor  {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
@@ -11,7 +16,16 @@ public class Actor  {
     private String birthPlace;
     private Integer growth;
 
-    public Actor(Long id, String firstName, String lastName, Integer age, Integer birthDate, String birthPlace, Integer growth) {
+
+    @OneToOne
+    private Biography biography;
+
+
+
+/////////////////////////////////////////
+
+
+    public Actor(Long id, String firstName, String lastName, Integer age, Integer birthDate, String birthPlace, Integer growth, Biography biography) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -19,6 +33,16 @@ public class Actor  {
         this.birthDate = birthDate;
         this.birthPlace = birthPlace;
         this.growth = growth;
+        this.biography = biography;
+    }
+
+
+    public Biography getBiography() {
+        return biography;
+    }
+
+    public void setBiography(Biography biography) {
+        this.biography = biography;
     }
 
     public Long getId() {

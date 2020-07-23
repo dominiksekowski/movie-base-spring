@@ -1,17 +1,41 @@
 package com.domseko.moviebasespring.domain;
 
+import javax.persistence.*;
+import java.util.Set;
+
+@Entity
 public class Director {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String firstName;
     private String lastName;
 
+    @OneToMany(mappedBy = "director")
+    private Set<MovieDescription> movieDescriptions;
 
-    public Director(Long id, String firstName, String lastName) {
+
+
+/////////////////////////////////////////
+
+
+    public Director(Long id, String firstName, String lastName, Set<MovieDescription> movieDescriptions) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
+        this.movieDescriptions = movieDescriptions;
+    }
+
+
+
+    public Set<MovieDescription> getMovieDescriptions() {
+        return movieDescriptions;
+    }
+
+    public void setMovieDescriptions(Set<MovieDescription> movieDescriptions) {
+        this.movieDescriptions = movieDescriptions;
     }
 
     public Long getId() {
