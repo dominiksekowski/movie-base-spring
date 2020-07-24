@@ -61,4 +61,31 @@ public class Director {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    /*********************************************/
+
+    @Override
+    public String toString() {
+        return "Director{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", movieDescriptions=" + movieDescriptions +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Director director = (Director) o;
+
+        return id != null ? id.equals(director.id) : director.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

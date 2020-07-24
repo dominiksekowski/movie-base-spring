@@ -81,4 +81,33 @@ public class MovieBase {
     public void setRate(Rate rate) {
         this.rate = rate;
     }
+
+    /*********************************************/
+
+    @Override
+    public String toString() {
+        return "MovieBase{" +
+                "id=" + id +
+                ", productionDate='" + productionDate + '\'' +
+                ", filmGenre='" + filmGenre + '\'' +
+                ", countryProduction='" + countryProduction + '\'' +
+                ", movieDescription=" + movieDescription +
+                ", rate=" + rate +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MovieBase movieBase = (MovieBase) o;
+
+        return id != null ? id.equals(movieBase.id) : movieBase.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

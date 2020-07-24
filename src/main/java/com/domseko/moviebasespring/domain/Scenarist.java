@@ -60,4 +60,31 @@ public class Scenarist {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    /*********************************************/
+
+    @Override
+    public String toString() {
+        return "Scenarist{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", movieDescriptions=" + movieDescriptions +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Scenarist scenarist = (Scenarist) o;
+
+        return id != null ? id.equals(scenarist.id) : scenarist.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

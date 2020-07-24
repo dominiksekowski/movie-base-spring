@@ -100,4 +100,35 @@ public class Actor  {
     public void setGrowth(Integer growth) {
         this.growth = growth;
     }
+
+    /***********************************************/
+
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                ", birthDate=" + birthDate +
+                ", birthPlace='" + birthPlace + '\'' +
+                ", growth=" + growth +
+                ", biography=" + biography +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Actor actor = (Actor) o;
+
+        return id != null ? id.equals(actor.id) : actor.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

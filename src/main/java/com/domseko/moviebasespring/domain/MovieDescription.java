@@ -113,4 +113,35 @@ public class MovieDescription {
     public void setImage(Byte image) {
         this.image = image;
     }
+
+    /*********************************************/
+
+    @Override
+    public String toString() {
+        return "MovieDescription{" +
+                "id=" + id +
+                ", movieTitle='" + movieTitle + '\'' +
+                ", image=" + image +
+                ", notes='" + notes + '\'' +
+                ", movieBase=" + movieBase +
+                ", director=" + director +
+                ", scenarist=" + scenarist +
+                ", actor=" + actor +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        MovieDescription that = (MovieDescription) o;
+
+        return id != null ? id.equals(that.id) : that.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }

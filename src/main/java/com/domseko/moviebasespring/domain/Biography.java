@@ -51,4 +51,29 @@ public class Biography {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    /*********************************************/
+    @Override
+    public String toString() {
+        return "Biography{" +
+                "id=" + id +
+                ", notes='" + notes + '\'' +
+                ", actor=" + actor +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Biography biography = (Biography) o;
+
+        return id != null ? id.equals(biography.id) : biography.id == null;
+    }
+
+    @Override
+    public int hashCode() {
+        return id != null ? id.hashCode() : 0;
+    }
 }
