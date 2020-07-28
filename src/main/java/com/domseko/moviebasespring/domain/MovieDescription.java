@@ -4,16 +4,23 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name = "movie_description")
 public class MovieDescription {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
+    @Column(name = "movie_title")
     private String movieTitle;
 
+
+    @Column(name = "image")
     @Lob
     private Byte image;
+
+    @Column(name = "notes")
     @Lob
     private String notes;
 
