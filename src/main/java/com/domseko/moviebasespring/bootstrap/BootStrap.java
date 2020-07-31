@@ -85,6 +85,12 @@ public class BootStrap implements CommandLineRunner {
         actor3.setBiography(biography3);
         actor4.setBiography(biography4);
         actor5.setBiography(biography5);
+
+        actor1.getMovieDescriptions().add(movieDescription1);
+        actor2.getMovieDescriptions().add(movieDescription1);
+        actor3.getMovieDescriptions().add(movieDescription1);
+        actor4.getMovieDescriptions().add(movieDescription1);
+        actor5.getMovieDescriptions().add(movieDescription1);
 //Biography
         biography1.setActor(actor1);
         biography2.setActor(actor2);
@@ -93,8 +99,6 @@ public class BootStrap implements CommandLineRunner {
         biography5.setActor(actor5);
 //Director
         director1.getMovieDescriptions().add(movieDescription1);
-//Scenarist
-        scenarist1.getMovieDescriptions().add(movieDescription1);
 //MovieBase
         movieBase1.setMovieDescription(movieDescription1);
 //MovieDescription
@@ -103,6 +107,14 @@ public class BootStrap implements CommandLineRunner {
         movieDescription1.setDirector(director1);
 
         movieDescription1.setScenarist(scenarist1);
+
+        movieDescription1.getActor().add(actor1);
+        movieDescription1.getActor().add(actor2);
+        movieDescription1.getActor().add(actor3);
+        movieDescription1.getActor().add(actor4);
+        movieDescription1.getActor().add(actor5);
+//Scenarist
+        scenarist1.getMovieDescriptions().add(movieDescription1);
 
 
 

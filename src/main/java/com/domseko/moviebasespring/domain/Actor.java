@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -41,8 +43,8 @@ public class Actor  {
     @OneToOne(cascade = CascadeType.ALL)
     private Biography biography;
 
-//    @ManyToMany(mappedBy = "actors")
-//    private Set<MovieDescription> movieDescriptions = new HashSet<>();
+    @ManyToMany(mappedBy = "actor")
+    private Set<MovieDescription> movieDescriptions = new HashSet<>();
 
 
 
