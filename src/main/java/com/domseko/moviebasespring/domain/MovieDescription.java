@@ -1,15 +1,18 @@
 package com.domseko.moviebasespring.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
-@Setter
-@Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Setter
+@Getter
 @Entity
 @Table(name = "movie_description")
 public class MovieDescription {
@@ -31,7 +34,8 @@ public class MovieDescription {
     @Lob
     private String notes;
 
-    @OneToOne(cascade = CascadeType.ALL)
+
+    @OneToOne
     private MovieBase movieBase;
 
     @ManyToOne
@@ -44,12 +48,15 @@ public class MovieDescription {
     @JoinTable(name = "movie_actors",
         joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "actor_id"))
-    private Set<Actor>actor;
+    private Set<Actor>actor = new HashSet<>();;
 
 
 
 /////////////////////////////////////////
 
 
-
+    public MovieDescription(String movieTitle, String notes) {
+        this.movieTitle = movieTitle;
+        this.notes = notes;
+    }
 }

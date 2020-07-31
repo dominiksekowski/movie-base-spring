@@ -1,14 +1,16 @@
 package com.domseko.moviebasespring.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
-@Setter
-@Getter
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@Setter
+@Getter
 @Entity
 @Table(name = "actor")
 public class Actor  {
@@ -36,15 +38,24 @@ public class Actor  {
     private Integer growth;
 
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Biography biography;
+
+//    @ManyToMany(mappedBy = "actors")
+//    private Set<MovieDescription> movieDescriptions = new HashSet<>();
 
 
 
 /////////////////////////////////////////
 
 
-
-
+    public Actor(String firstName, String lastName, Integer age, Integer birthDate, String birthPlace, Integer growth) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.age = age;
+        this.birthDate = birthDate;
+        this.birthPlace = birthPlace;
+        this.growth = growth;
+    }
 
 }

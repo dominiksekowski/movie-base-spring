@@ -4,7 +4,6 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Setter
@@ -28,4 +27,8 @@ public class Biography {
 
 /////////////////////////////////////////
 
+    public Biography( String notes) {
+
+        this.notes = notes;
+    }
 }

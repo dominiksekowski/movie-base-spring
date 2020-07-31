@@ -1,13 +1,16 @@
 package com.domseko.moviebasespring.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
 @Entity
@@ -25,11 +28,15 @@ public class Director {
     private String lastName;
 
     @OneToMany(mappedBy = "director")
-    private Set<MovieDescription> movieDescriptions;
+    private Set<MovieDescription> movieDescriptions = new HashSet<>();;
 
 
 
 /////////////////////////////////////////
 
 
+    public Director(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

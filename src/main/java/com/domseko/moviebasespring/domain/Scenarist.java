@@ -1,15 +1,18 @@
 package com.domseko.moviebasespring.domain;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "scenarist")
 public class Scenarist {
@@ -25,10 +28,14 @@ public class Scenarist {
     private String lastName;
 
     @OneToMany(mappedBy = "scenarist")
-    private Set<MovieDescription> movieDescriptions;
+    private Set<MovieDescription> movieDescriptions = new HashSet<>();;
 
 
 /////////////////////////////////////////
 
 
+    public Scenarist(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

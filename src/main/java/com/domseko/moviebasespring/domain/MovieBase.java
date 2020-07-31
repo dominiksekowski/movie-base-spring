@@ -4,11 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Setter
 @Getter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
 @Table(name = "movie_base")
 public class MovieBase {
@@ -18,7 +17,7 @@ public class MovieBase {
     private Long id;
 
     @Column(name = "production_date")
-    private String productionDate;
+    private Integer productionDate;
 
     @Column(name = "film_genre")
     private String filmGenre;
@@ -26,14 +25,22 @@ public class MovieBase {
     @Column(name = "country_production")
     private String countryProduction;
 
-    @OneToOne
-    private MovieDescription movieDescription;
-
     @Enumerated(value = EnumType.STRING)
     private Rate rate;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    private MovieDescription movieDescription;
+
+
 
 
 /////////////////////////////////////////
 
 
+    public MovieBase(Integer productionDate, String filmGenre, String countryProduction, Rate rate) {
+        this.productionDate = productionDate;
+        this.filmGenre = filmGenre;
+        this.countryProduction = countryProduction;
+        this.rate = rate;
+    }
 }
