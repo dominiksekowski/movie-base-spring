@@ -117,13 +117,6 @@ public class BootStrap implements CommandLineRunner {
         scenarist1.getMovieDescriptions().add(movieDescription1);
 
 
-
-
-
-
-
-
-
 /////////////////////////////////////////////////////////////////////////
         directorService.saveObject(director1);
 
